@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dheshnaa's Grievance Portal</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <div class="container">
+        <!-- Login Page -->
+        <div id="loginPage" class="page active">
+            <div class="login-container">
+                <div class="login-header">
+                    <h1><i class="fas fa-heart"></i> Dheshnaa's Portal</h1>
+                    <p>A special place for your thoughts</p>
+                </div>
+                <div class="login-form">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" placeholder="Enter your username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Enter your password" required>
+                    </div>
+                    <button type="button" onclick="login()" class="btn btn-primary">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </button>
+                </div>
+                <div class="login-footer">
+                    <p>Made with <i class="fas fa-heart text-red"></i> by Jacob</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Portal Page -->
+        <div id="portalPage" class="page">
+            <div class="portal-header">
+                <h1>Welcome, Dheshnaa! <i class="fas fa-star"></i></h1>
+                <p>Share what's on your mind</p>
+                <button onclick="logout()" class="btn btn-secondary logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+            
+            <div class="portal-container">
+                <div class="grievance-form">
+                    <h2><i class="fas fa-pen-fancy"></i> New Grievance</h2>
+                    <form id="grievanceForm">
+                        <div class="form-group">
+                            <label for="grievanceTitle">What's bothering you?</label>
+                            <input type="text" id="grievanceTitle" placeholder="Give your grievance a title" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="grievanceText">Tell me more about it</label>
+                            <textarea id="grievanceText" placeholder="Describe what's on your mind..." rows="6" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="upsetLevel">How upset are you with Jacob?</label>
+                            <div class="slider-container">
+                                <div class="slider-labels">
+                                    <span>😊 Not upset</span>
+                                    <span>😤 Very upset</span>
+                                </div>
+                                <input type="range" id="upsetLevel" min="1" max="10" value="5" class="slider">
+                                <div class="slider-value">
+                                    <span id="sliderEmoji">😐</span>
+                                    <span id="sliderText">Moderately upset</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Submit Grievance
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Thank You Page -->
+        <div id="thankYouPage" class="page">
+            <div class="thank-you-container">
+                <div class="thank-you-content">
+                    <i class="fas fa-check-circle success-icon"></i>
+                    <h1>Thank you, Dheshnaa!</h1>
+                    <p>Your grievance has been sent to Jacob.</p>
+                    <p>He will get back to you very soon! <i class="fas fa-heart"></i></p>
+                    <button onclick="goBackToPortal()" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Submit Another Grievance
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Panel -->
+        <div id="adminPage" class="page">
+            <div class="admin-header">
+                <h1><i class="fas fa-cog"></i> Admin Panel</h1>
+                <p>Manage Dheshnaa's grievances</p>
+                <button onclick="goBackToPortal()" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Back to Portal
+                </button>
+            </div>
+            
+            <div class="admin-container">
+                <div class="grievances-list">
+                    <h2><i class="fas fa-list"></i> All Grievances</h2>
+                    <div id="grievancesList"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
