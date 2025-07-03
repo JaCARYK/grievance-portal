@@ -1,4 +1,49 @@
 {
+  "version": 2,
+  "builds": [
+    {
+      "src": "*.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "*.css",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "*.js",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "api/*.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "api/**/*.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/grievances",
+      "dest": "/api/grievances.js"
+    },
+    {
+      "src": "/api/grievances/(.*)/respond",
+      "dest": "/api/grievances/$1/respond.js"
+    },
+    {
+      "src": "/api/grievances-archive",
+      "dest": "/api/grievances-archive.js"
+    },
+    {
+      "src": "/api/grievances-sheets",
+      "dest": "/api/grievances-sheets.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ],
   "functions": {
     "api/grievances.js": {
       "maxDuration": 30
@@ -12,15 +57,5 @@
     "api/grievances-sheets.js": {
       "maxDuration": 30
     }
-  },
-  "rewrites": [
-    {
-      "source": "/api/grievances",
-      "destination": "/api/grievances.js"
-    },
-    {
-      "source": "/api/grievances/:id/respond",
-      "destination": "/api/grievances/:id/respond.js"
-    }
-  ]
+  }
 } 
