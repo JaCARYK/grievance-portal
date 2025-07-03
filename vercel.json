@@ -1,0 +1,26 @@
+{
+  "functions": {
+    "api/grievances.js": {
+      "maxDuration": 30
+    },
+    "api/grievances/[id]/respond.js": {
+      "maxDuration": 30
+    },
+    "api/grievances-archive.js": {
+      "maxDuration": 30
+    },
+    "api/grievances-sheets.js": {
+      "maxDuration": 30
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/grievances",
+      "destination": "/api/grievances.js"
+    },
+    {
+      "source": "/api/grievances/:id/respond",
+      "destination": "/api/grievances/:id/respond.js"
+    }
+  ]
+} 

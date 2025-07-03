@@ -1,0 +1,24 @@
+{
+  "name": "grievance-portal-backend",
+  "version": "1.0.0",
+  "description": "Backend for Dheshnaa's Grievance Portal",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'No build step needed'"
+  },
+  "dependencies": {
+    "nodemailer": "^6.9.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "keywords": [
+    "grievance",
+    "portal",
+    "backend",
+    "express"
+  ],
+  "author": "Jacob",
+  "license": "MIT"
+} 
